@@ -19,7 +19,7 @@ const DEFAULT_SETTINGS: AppSettings = {
   autoStartFocus: false,
   sound: 'chime',
   theme: 'dark',
-  visualTheme: 'forge',
+  visualTheme: 'editorial',
 }
 
 const DEFAULT_TIMER_STATE: TimerState = {
