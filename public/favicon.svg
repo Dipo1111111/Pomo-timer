@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="20" stroke="#6b7aff" stroke-width="4" fill="none" opacity="0.3"/>
+  <circle cx="32" cy="32" r="20" stroke="#6b7aff" stroke-width="4" fill="none"
+    stroke-dasharray="125.66" stroke-dashoffset="31.42" stroke-linecap="round"
+    transform="rotate(-90 32 32)"/>
+  <text x="32" y="38" text-anchor="middle" fill="#6b7aff" font-family="system-ui" font-size="11" font-weight="600">25</text>
+</svg>

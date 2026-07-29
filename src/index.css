@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* ─── Theme tokens ─── */
+@theme {
+  --color-bg: oklch(0.13 0.005 285);
+  --color-surface: oklch(0.18 0.008 285);
+  --color-surface-hover: oklch(0.22 0.01 285);
+  --color-border: oklch(0.27 0.012 285);
+  --color-ink: oklch(0.93 0.01 285);
+  --color-ink-muted: oklch(0.65 0.02 285);
+  --color-accent: oklch(0.62 0.19 265);
+  --color-accent-hover: oklch(0.55 0.22 265);
+  --color-accent-subtle: oklch(0.25 0.06 265);
+  --color-success: oklch(0.62 0.15 160);
+  --color-danger: oklch(0.62 0.18 25);
+  --color-phase-focus: oklch(0.62 0.19 265);
+  --color-phase-short-break: oklch(0.62 0.15 160);
+  --color-phase-long-break: oklch(0.65 0.15 220);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro", "Inter", sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+}
+
+/* ─── Light mode overrides ─── */
+.light {
+  --color-bg: oklch(0.97 0.002 285);
+  --color-surface: oklch(0.94 0.004 285);
+  --color-surface-hover: oklch(0.90 0.006 285);
+  --color-border: oklch(0.86 0.008 285);
+  --color-ink: oklch(0.15 0.01 285);
+  --color-ink-muted: oklch(0.45 0.02 285);
+  --color-accent: oklch(0.50 0.22 265);
+  --color-accent-hover: oklch(0.42 0.25 265);
+  --color-accent-subtle: oklch(0.88 0.04 265);
+  --color-success: oklch(0.50 0.15 160);
+  --color-danger: oklch(0.55 0.20 25);
+  --color-phase-focus: oklch(0.50 0.22 265);
+  --color-phase-short-break: oklch(0.50 0.15 160);
+  --color-phase-long-break: oklch(0.55 0.15 220);
+}
+
+/* ─── Editorial — warm ivory, oxblood, serif ─── */
+[data-visual-theme="editorial"] {
+  --color-bg: oklch(0.965 0.008 80);
+  --color-surface: oklch(0.935 0.01 80);
+  --color-surface-hover: oklch(0.905 0.012 80);
+  --color-border: oklch(0.865 0.014 80);
+  --color-ink: oklch(0.25 0.01 80);
+  --color-ink-muted: oklch(0.45 0.015 80);
+  --color-accent: oklch(0.35 0.12 20);
+  --color-accent-hover: oklch(0.30 0.14 20);
+  --color-accent-subtle: oklch(0.86 0.03 20);
+  --color-phase-focus: oklch(0.35 0.12 20);
+  --color-phase-short-break: oklch(0.55 0.12 140);
+  --color-phase-long-break: oklch(0.55 0.10 200);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "EB Garamond", Georgia, serif;
+}
+
+/* ─── Frost — white, charcoal, ice blue, segmented ─── */
+[data-visual-theme="frost"] {
+  --color-bg: oklch(0.99 0.002 80);
+  --color-surface: oklch(0.955 0.005 80);
+  --color-surface-hover: oklch(0.915 0.006 80);
+  --color-border: oklch(0.88 0.008 80);
+  --color-ink: oklch(0.30 0.01 260);
+  --color-ink-muted: oklch(0.55 0.015 260);
+  --color-accent: oklch(0.30 0.01 260);
+  --color-accent-hover: oklch(0.25 0.01 260);
+  --color-accent-subtle: oklch(0.93 0.008 260);
+  --color-phase-focus: oklch(0.30 0.01 260);
+  --color-phase-short-break: oklch(0.55 0.10 160);
+  --color-phase-long-break: oklch(0.55 0.10 220);
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Inter Tight", sans-serif;
+}
+
+/* ─── Forge — black, deep blue, clean, architectural ─── */
+[data-visual-theme="forge"] {
+  --color-bg: oklch(0.10 0.003 80);
+  --color-surface: oklch(0.16 0.005 80);
+  --color-surface-hover: oklch(0.20 0.008 80);
+  --color-border: oklch(0.25 0.01 80);
+  --color-ink: oklch(0.92 0.01 80);
+  --color-ink-muted: oklch(0.60 0.015 80);
+  --color-accent: oklch(0.58 0.14 255);
+  --color-accent-hover: oklch(0.52 0.16 255);
+  --color-accent-subtle: oklch(0.20 0.05 255);
+  --color-phase-focus: oklch(0.58 0.14 255);
+  --color-phase-short-break: oklch(0.55 0.12 140);
+  --color-phase-long-break: oklch(0.55 0.10 220);
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* ─── Global base styles ─── */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    padding-top: env(safe-area-inset-top, 0px);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Safe area for PWA bottom nav */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Touch-friendly tap targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-ink);
+  }
+
+  /* Scrollbar for dark mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+}
+
+/* ─── Animation utilities ─── */
+@layer utilities {
+  .animate-count-up {
+    animation: countUp 0.6s ease-out both;
+  }
+
+  .skeleton-pulse {
+    animation: skeletonPulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
