@@ -4,15 +4,13 @@ import type { TimerPhase } from '../../lib/types'
 
 interface PhaseIndicatorProps {
   phase: TimerPhase
-  currentCycleSessions: number
-  sessionsBeforeLongBreak: number
+  taskName?: string
   className?: string
 }
 
 export function PhaseIndicator({
   phase,
-  currentCycleSessions,
-  sessionsBeforeLongBreak,
+  taskName,
   className,
 }: PhaseIndicatorProps) {
   const isFocus = phase === 'focus'
@@ -39,15 +37,14 @@ export function PhaseIndicator({
         </motion.span>
       </AnimatePresence>
 
-      {/* Session counter */}
-      {isFocus && (
-        <span className="text-xs text-ink-muted">
-          Session {currentCycleSessions + 1}/{sessionsBeforeLongBreak}
+      {/* Task name or next-phase hint */}
+      {isFocus && taskName ? (
+        <span className="text-sm text-ink font-medium max-w-[200px] truncate">
+          {taskName}
         </span>
-      )}
-      {!isFocus && (
+      ) : !isFocus ? (
         <span className="text-xs text-ink-muted">{nextLabel}</span>
-      )}
+      ) : null}
     </div>
   )
 }

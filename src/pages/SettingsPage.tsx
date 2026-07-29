@@ -219,7 +219,6 @@ function ToggleRow({
 }
 
 function ThemeOption({
-  id,
   label,
   description,
   colors,

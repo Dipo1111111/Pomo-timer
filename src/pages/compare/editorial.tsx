@@ -107,8 +107,8 @@ export default function EditorialDesign() {
             <svg width="100%" height="100%" viewBox="0 0 220 220" style={{ transform: 'rotate(-90deg)' }}>
               <circle cx="110" cy="110" r="95" fill="none" stroke="#2C2C2C" strokeWidth="1" opacity="0.08" />
               <circle cx="110" cy="110" r="95" fill="none" stroke="#6B2A3C" strokeWidth="2"
-                strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={circumference * 0.35}
-                strokeDasharray="298.45 5" />
+                strokeLinecap="round" strokeDasharray={`${circumference * 0.35} ${circumference * 0.65}`}
+                strokeDashoffset={circumference * 0.35} />
               {/* Decorative dots on the active arc */}
               <circle cx="110" cy="15" r="2" fill="#6B2A3C" opacity="0.6" />
             </svg>

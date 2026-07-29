@@ -119,3 +119,27 @@ Last updated: 2026-07-29
 
 ### Next session starts with
 Discuss marketing, psychology, positioning, and audience strategy. The user was about to explain their vision for "what we are, who is, who can" and viral psychology around the "we" angle before the session ended. This was framed as the main product/marketing conversation for the app.
+
+---
+
+## Session: Audio fix — sound wasn't playing
+
+Last updated: 2026-07-29
+
+### What was built
+**Audio fix:**
+- `src/hooks/useNotification.ts` — Added `primeAudio()` function that creates and resumes the AudioContext. Browser AudioContexts are blocked outside of user gestures; the old code only created the context inside `notify()` which fires from a timer callback (not a gesture), so Chrome silently suspended it and the try-catch swallowed the error.
+- `src/lib/timer-context.tsx` — Calls `primeAudio()` inside the `start()` handler, which runs from a user click on Start. This creates and resumes the AudioContext while the browser allows it, so sound is ready when the timer completes.
+
+### Problems solved
+- **Sound never played on timer completion** — Web Audio API requires AudioContext creation/resume in a user gesture. Creating it lazily inside `notify()` (setInterval callback) was silently blocked by Chrome. Fix: create + resume on Start button click (valid user gesture), with a belt-and-suspenders resume in `notify()` as fallback.
+
+### Current state
+App logic and fixes are complete. Name is reverted, theme flash is gone, seed data is wiped, stats shows clean empty state, and audio now works on timer completion.
+
+### Next session starts with
+Discuss marketing, psychology, positioning, and audience strategy. The user wanted to talk about "what we are, who is, who can" and viral psychology around the "we" angle.
+
+### Open questions
+- User mentioned marketing/psychology strategy — needs to be discussed next session
+- No other open issues

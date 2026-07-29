@@ -584,7 +584,7 @@ function RecentSessions({ sessions }: { sessions: SessionRecord[] }) {
       </CardHeader>
       <CardContent className="px-4 pb-3 pt-0">
         <div className="flex flex-col">
-          {sessions.slice(0, displayCount).map((session, i) => (
+          {sessions.slice(0, displayCount).map((session) => (
             <div
               key={session.id}
               className="flex items-center justify-between py-1.5 border-b border-border last:border-0"
@@ -593,18 +593,24 @@ function RecentSessions({ sessions }: { sessions: SessionRecord[] }) {
                 <span className="text-sm text-ink font-medium shrink-0">
                   {formatDuration(session.duration)}
                 </span>
-                <span className="text-[11px] text-ink-muted truncate">
-                  {new Date(session.completedAt).toLocaleDateString(undefined, {
-                    weekday: 'short',
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                </span>
+                {session.taskName ? (
+                  <span className="text-[11px] text-ink truncate max-w-[140px]">
+                    {session.taskName}
+                  </span>
+                ) : (
+                  <span className="text-[11px] text-ink-muted truncate">
+                    {new Date(session.completedAt).toLocaleDateString(undefined, {
+                      weekday: 'short',
+                      month: 'short',
+                      day: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </span>
+                )}
               </div>
               <span className="text-[10px] font-medium px-2 py-0.5 rounded-full shrink-0 bg-accent-subtle text-accent">
-                Focus
+                {session.taskName ? 'Focus' : 'Focus'}
               </span>
             </div>
           ))}

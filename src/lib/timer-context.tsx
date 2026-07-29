@@ -29,6 +29,8 @@ import {
 
 interface TimerContextValue {
   state: TimerState
+  currentTask: string
+  setCurrentTask: (task: string) => void
   start: () => void
   pause: () => void
   reset: () => void
@@ -39,7 +41,7 @@ const TimerContext = createContext<TimerContextValue | null>(null)
 
 export function TimerProvider({ children }: { children: ReactNode }) {
   const { settings } = useSettings()
-  const { notify, requestNotificationPermission } = useNotification()
+  const { notify, primeAudio, requestNotificationPermission } = useNotification()
 
   const [state, setState] = useState<TimerState>(() => {
     const saved = loadTimerState()
@@ -49,6 +51,10 @@ export function TimerProvider({ children }: { children: ReactNode }) {
     }
     return saved
   })
+
+  const [currentTask, setCurrentTask] = useState('')
+  const taskRef = useRef(currentTask)
+  taskRef.current = currentTask
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const stateRef = useRef(state)
@@ -121,6 +127,12 @@ export function TimerProvider({ children }: { children: ReactNode }) {
       startedAt: Date.now() - (stateRef.current.totalDuration - stateRef.current.remaining),
       completedAt: Date.now(),
       duration: stateRef.current.totalDuration,
+      taskName: taskRef.current || undefined,
+    }
+
+    // Clear the task after a completed focus session
+    if (stateRef.current.phase === 'focus') {
+      setCurrentTask('')
     }
 
     // Save session
@@ -156,6 +168,7 @@ export function TimerProvider({ children }: { children: ReactNode }) {
 
   // Start the timer
   const start = useCallback(() => {
+    primeAudio()
     setState(prev => {
       // If idle at 0 remaining (after completion without auto-start), advance first
       if (prev.status === 'idle' && prev.remaining <= 0) {
@@ -168,7 +181,7 @@ export function TimerProvider({ children }: { children: ReactNode }) {
       return startTimer(prev)
     })
     startTickInterval()
-  }, [settings, startTickInterval])
+  }, [settings, startTickInterval, primeAudio])
 
   // Pause the timer
   const pause = useCallback(() => {
@@ -194,10 +207,12 @@ export function TimerProvider({ children }: { children: ReactNode }) {
         startedAt: Date.now() - (stateRef.current.totalDuration - stateRef.current.remaining),
         completedAt: Date.now(),
         duration: stateRef.current.totalDuration - stateRef.current.remaining,
+        taskName: taskRef.current || undefined,
       }
       const allSessions = loadSessions()
       allSessions.push(session)
       saveSessions(allSessions)
+      setCurrentTask('')
     }
 
     setState(prev => {
@@ -217,7 +232,7 @@ export function TimerProvider({ children }: { children: ReactNode }) {
   }, [clearTimer])
 
   return (
-    <TimerContext.Provider value={{ state, start, pause, reset, skip }}>
+    <TimerContext.Provider value={{ state, currentTask, setCurrentTask, start, pause, reset, skip }}>
       {children}
     </TimerContext.Provider>
   )

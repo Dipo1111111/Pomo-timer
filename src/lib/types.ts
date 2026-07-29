@@ -8,6 +8,7 @@ export interface SessionRecord {
   startedAt: number  // Date.now()
   completedAt: number
   duration: number   // seconds
+  taskName?: string
 }
 
 export interface TimerState {
