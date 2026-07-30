@@ -11,6 +11,7 @@ import ComparePage from './pages/ComparePage'
 import EditorialDesign from './pages/compare/editorial'
 import FrostDesign from './pages/compare/frost'
 import ForgeDesign from './pages/compare/forge'
+import PrivacyPage from './pages/PrivacyPage'
 import { PwaUpdateBanner } from './components/pwa/PwaUpdateBanner'
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/compare/editorial" element={<EditorialDesign />} />
             <Route path="/compare/frost" element={<FrostDesign />} />
             <Route path="/compare/forge" element={<ForgeDesign />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
           </Routes>
         </TimerProvider>
       </SettingsProvider>
