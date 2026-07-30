@@ -143,3 +143,43 @@ Discuss marketing, psychology, positioning, and audience strategy. The user want
 ### Open questions
 - User mentioned marketing/psychology strategy — needs to be discussed next session
 - No other open issues
+
+---
+
+## Session: Task names, build fixes, default theme = editorial
+
+Last updated: 2026-07-29
+
+### What was built
+**Task name feature:**
+- `src/lib/types.ts` — Added `taskName?: string` to `SessionRecord`
+- `src/lib/timer-context.tsx` — Added `currentTask` state + `setCurrentTask` context methods. Saves task name with each completed session. Uses a ref to avoid stale closure issues with the timer callback. Auto-clears task after focus session completes.
+- `src/pages/TimerPage.tsx` — Added clean text input at the top: "What are you working on?" Type a task, hit Enter or click Start. Input disappears once task is set and timer is running.
+- `src/components/timer/PhaseIndicator.tsx` — Shows the current task name during focus instead of the useless "Session X/4" counter. During breaks, shows "NEXT: FOCUS".
+- `src/pages/StatsPage.tsx` — RecentSessions shows the task name next to each session duration.
+
+**Session counter removed:**
+- PhaseIndicator no longer shows "Session X/4" at all. Task name replaced it entirely.
+
+**Vercel build errors fixed:**
+- `src/pages/SettingsPage.tsx` — Removed unused `id` param in ThemeOption
+- `src/pages/StatsPage.tsx` — Removed unused `i` in sessions map
+- `src/pages/compare/editorial.tsx` — Fixed duplicate `strokeDasharray` attribute
+
+**Default theme = editorial:**
+- `src/lib/storage.ts` — Default `visualTheme` changed from `'forge'` to `'editorial'`
+- `index.html` — `<html>` now has `data-visual-theme="editorial"` by default. Inline script overrides it if localStorage has a saved theme. Fresh browsers get editorial from the first paint.
+
+### Decisions made
+- **Task name is the core session identity** — Every focus session is tied to a real task. The "Session X/4" counter was meaningless metadata; the task name is what matters.
+- **Editorial is the default theme** — When the user opens the app for the first time, they see Editorial (warm ivory + oxblood + serif), not Forge (black + blue). Changed in both storage.ts default and the HTML attribute.
+
+### Current state
+App is clean. TypeScript compiles with no errors. Vercel deploy should pass. Fresh browser experience: Editorial theme, clean stats page, task input ready. Returning users: their saved theme and settings preserved.
+
+### Next session starts with
+Discuss marketing, psychology, positioning, and audience strategy. The user wanted to talk about "what we are, who is, who can" and viral psychology around the "we" angle.
+
+### Open questions
+- Marketing/psychology strategy needs discussion
+- No other open issues

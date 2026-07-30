@@ -9,14 +9,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       includeAssets: ['icons/*.svg'],
       manifest: {
         name: 'Pomodoro Timer',
         short_name: 'Pomodoro',
         description: 'A beautiful, minimalist Pomodoro timer for focused work sessions',
-        theme_color: '#0a0a0b',
-        background_color: '#0a0a0b',
+        theme_color: '#632228',
+        background_color: '#F2EDE4',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',

@@ -41,6 +41,13 @@
 - [ ] Verify dark/light mode toggle
 - [ ] Reduced-motion testing
 
+## Phase 7: PWA Auto-Update & Icons
+- [x] PWA update flow (registerType: prompt + timer-aware auto-reload)
+- [x] PwaUpdateBanner component (non-intrusive when timer is running)
+- [x] Redesigned SVG favicon (minimalist timer ring)
+- [x] Redesigned PWA icons (192x192, 512x512, maskable)
+- [x] Proper HTML meta tags (iOS, Android, Windows)
+
 ## Open Questions
 - [x] Sound file — use Web Audio API to generate a tone, or include a tiny audio file?
   → Resolved: Using Web Audio API to generate chime/bell tones programmatically (no external files needed)

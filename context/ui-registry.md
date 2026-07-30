@@ -49,6 +49,13 @@
 - **Props**: `className?`
 - **Description**: Segmented control with three options (Dark / Light / System) using Moon/Sun/Monitor icons. Active option has accent bg.
 
+## PWA Components
+
+### PwaUpdateBanner
+- **File**: `src/components/pwa/PwaUpdateBanner.tsx`
+- **Props**: None (reads timer state from TimerContext, uses `useRegisterSW` from `virtual:pwa-register/react`)
+- **Description**: Handles service worker updates. Auto-updates + reloads when timer is idle (seamless). Shows a minimal pill-shaped banner ("Update available" + "Refresh" button) when the timer is running, so a focus session is never interrupted. Registered in `App.tsx` inside `TimerProvider`.
+
 ## Pages
 
 ### TimerPage

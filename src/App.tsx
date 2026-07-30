@@ -11,6 +11,7 @@ import ComparePage from './pages/ComparePage'
 import EditorialDesign from './pages/compare/editorial'
 import FrostDesign from './pages/compare/frost'
 import ForgeDesign from './pages/compare/forge'
+import { PwaUpdateBanner } from './components/pwa/PwaUpdateBanner'
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
@@ -23,6 +24,7 @@ export default function App() {
     <BrowserRouter>
       <SettingsProvider>
         <TimerProvider>
+          <PwaUpdateBanner />
           <Routes>
             <Route element={<AppShell />}>
               <Route path="/" element={<TimerPage />} />
