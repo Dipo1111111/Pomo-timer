@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -22,9 +22,9 @@ import { NotificationBridge } from '@/components/timer/NotificationBridge'
 SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
-  const [appReady, setAppReady] = useState(false)
-  const [assetsReady, setAssetsReady] = useState(false)
+  const [ready, setReady] = useState(false)
   const [onboardingDone, setOnboardingDone] = useState<boolean | null>(null)
+  const mounted = useRef(false)
 
   const [fontsLoaded] = useFonts({
     Inter: Inter_400Regular,
@@ -39,17 +39,18 @@ export default function RootLayout() {
     isOnboardingComplete().then(setOnboardingDone)
   }, [])
 
-  // Once fonts and onboarding are known, hide Expo splash and
-  // signal the loading bar to start filling
+  // Keep the native splash visible until everything is loaded,
+  // then hide it AND show the main app in one go.
   useEffect(() => {
-    if (fontsLoaded && onboardingDone !== null && !assetsReady) {
+    if (fontsLoaded && onboardingDone !== null && !mounted.current) {
+      mounted.current = true
       SplashScreen.hideAsync()
-      setAssetsReady(true)
+      setReady(true)
     }
-  }, [fontsLoaded, onboardingDone, assetsReady])
+  }, [fontsLoaded, onboardingDone])
 
-  if (!appReady || !assetsReady) {
-    return <LoadingScreen start={assetsReady} onDone={() => setAppReady(true)} />
+  if (!ready) {
+    return <LoadingScreen start={false} onDone={() => {}} />
   }
 
   return (
