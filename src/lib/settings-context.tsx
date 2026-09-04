@@ -54,7 +54,6 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     // Update theme-color meta — match the current visual theme's bg
     const meta = document.querySelector('meta[name="theme-color"]')
     if (meta) {
-      const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim()
       // Fallbacks per visual theme
       const themeColors: Record<string, { dark: string; light: string }> = {
         editorial: { dark: '#1e1c1a', light: '#f5f2ed' },
