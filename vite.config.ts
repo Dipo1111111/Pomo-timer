@@ -59,15 +59,6 @@ export default defineConfig({
             },
           },
           {
-            // Same-origin assets — cache-first (hashed filenames = immutable)
-            urlPattern: ({ url }) => url.origin === self.location.origin,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'asset-cache',
-              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
-            },
-          },
-          {
             // Google Fonts stylesheets — stale-while-revalidate
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'StaleWhileRevalidate',
