@@ -41,15 +41,34 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,json}'],
-        // Navigate to index.html for offline SPA support
-        navigateFallback: '/index.html',
+        globPatterns: ['**/*.{js,css,svg,png,ico,json}'],
+        // Don't precache HTML — Vite's hashed filenames handle cache busting for JS/CSS,
+        // and caching HTML causes stale theme/style references
+        navigateFallback: null,
         // Skip waiting so new SW activates immediately on install
         skipWaiting: true,
         clientsClaim: true,
         runtimeCaching: [
           {
-            // Google Fonts stylesheets — revalidate so font changes propagate
+            // HTML pages — network-first so updates propagate immediately
+            urlPattern: /\.html$/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'html-cache',
+              expiration: { maxEntries: 5, maxAgeSeconds: 60 * 60 },
+            },
+          },
+          {
+            // Same-origin assets — cache-first (hashed filenames = immutable)
+            urlPattern: ({ url }) => url.origin === self.location.origin,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'asset-cache',
+              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+          {
+            // Google Fonts stylesheets — stale-while-revalidate
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'StaleWhileRevalidate',
             options: {
@@ -57,7 +76,7 @@ export default defineConfig({
             },
           },
           {
-            // Google Fonts font files — cache long-term
+            // Google Fonts font files — cache-first (fonts don't change)
             urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
             handler: 'CacheFirst',
             options: {

@@ -20,14 +20,12 @@ export function NavBar() {
     <>
       {/* ─── Mobile — flush bottom tab bar ─── */}
       <nav
-        className="fixed bottom-0 left-0 right-0 z-50 md:hidden safe-area-bottom"
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+        style={{ backgroundColor: 'var(--color-bg)' }}
         role="navigation"
         aria-label="Main navigation"
       >
-        <div
-          className="flex items-center justify-around h-14 border-t border-border/40"
-          style={{ backgroundColor: 'var(--color-bg)' }}
-        >
+        <div className="flex items-center justify-around h-14 border-t border-border/40">
           {NAV_ITEMS.map(({ to, icon: Icon, label }) => {
             const active = isActive(to)
             return (

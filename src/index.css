@@ -198,12 +198,15 @@
     -moz-osx-font-smoothing: grayscale;
     /* Prevent rubber-banding behind the status bar on iOS PWA */
     overscroll-behavior: none;
+    /* Extend background behind status bar + home indicator on iOS */
+    background-color: var(--color-bg);
   }
 
   body {
     margin: 0;
     padding: 0;
     padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     background-color: var(--color-bg);
     color: var(--color-ink);
     min-height: 100dvh;
