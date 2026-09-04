@@ -17,12 +17,12 @@ export function AppShell() {
   const location = useLocation()
 
   return (
-    <div className="flex flex-col min-h-dvh md:flex-row">
+    <div className="flex flex-col h-full min-h-full md:flex-row">
       {/* Sidebar + bottom nav */}
       <NavBar />
 
       {/* Main content area — pb clears mobile tab bar (56px) */}
-      <main className="flex-1 flex flex-col pb-14 md:pb-0 overflow-y-auto min-h-dvh">
+      <main className="flex-1 flex flex-col pb-14 md:pb-0 overflow-y-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
