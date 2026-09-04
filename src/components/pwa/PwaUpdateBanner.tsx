@@ -47,7 +47,7 @@ export function PwaUpdateBanner() {
   if (state.status !== 'running' && !dismissed) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-24 flex justify-center z-[60] pointer-events-none">
+    <div className="fixed inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom,0px)+0.75rem)] flex justify-center z-[60] pointer-events-none">
       <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-surface border border-border/60 shadow-lg shadow-black/10 pointer-events-auto animate-slide-up">
         <p className="text-xs font-medium text-ink-muted">
           Update available

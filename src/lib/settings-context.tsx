@@ -32,17 +32,38 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   // Sync visual theme to DOM
   useEffect(() => {
     document.documentElement.dataset.visualTheme = settings.visualTheme
-  }, [settings.visualTheme])
+    // Also update theme-color meta when visual theme changes
+    const resolved = resolveTheme(settings.theme)
+    const meta = document.querySelector('meta[name="theme-color"]')
+    if (meta) {
+      const themeColors: Record<string, { dark: string; light: string }> = {
+        editorial: { dark: '#1e1c1a', light: '#f5f2ed' },
+        frost: { dark: '#1a1e24', light: '#fafaf8' },
+        forge: { dark: '#151517', light: '#151517' },
+      }
+      const palette = themeColors[settings.visualTheme] || themeColors.editorial
+      meta.setAttribute('content', resolved === 'dark' ? palette.dark : palette.light)
+    }
+  }, [settings.visualTheme, settings.theme])
 
   // Sync dark/light theme to DOM and resolve system preference
   useEffect(() => {
     const resolved = resolveTheme(settings.theme)
     setTheme(resolved)
     document.documentElement.classList.toggle('light', resolved === 'light')
-    // Update theme-color meta
+    // Update theme-color meta — match the current visual theme's bg
     const meta = document.querySelector('meta[name="theme-color"]')
     if (meta) {
-      meta.setAttribute('content', resolved === 'dark' ? '#0a0a0b' : '#f5f5f0')
+      const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim()
+      // Fallbacks per visual theme
+      const themeColors: Record<string, { dark: string; light: string }> = {
+        editorial: { dark: '#1e1c1a', light: '#f5f2ed' },
+        frost: { dark: '#1a1e24', light: '#fafaf8' },
+        forge: { dark: '#151517', light: '#151517' },
+      }
+      const vt = document.documentElement.dataset.visualTheme || 'editorial'
+      const palette = themeColors[vt] || themeColors.editorial
+      meta.setAttribute('content', resolved === 'dark' ? palette.dark : palette.light)
     }
   }, [settings.theme])
 

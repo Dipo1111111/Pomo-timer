@@ -2,22 +2,22 @@
 
 /* ─── Theme tokens ─── */
 @theme {
-  --color-bg: oklch(0.13 0.005 285);
-  --color-surface: oklch(0.18 0.008 285);
-  --color-surface-hover: oklch(0.22 0.01 285);
-  --color-border: oklch(0.27 0.012 285);
-  --color-ink: oklch(0.93 0.01 285);
-  --color-ink-muted: oklch(0.65 0.02 285);
-  --color-accent: oklch(0.62 0.19 265);
-  --color-accent-hover: oklch(0.55 0.22 265);
-  --color-accent-subtle: oklch(0.25 0.06 265);
-  --color-success: oklch(0.62 0.15 160);
-  --color-danger: oklch(0.62 0.18 25);
-  --color-phase-focus: oklch(0.62 0.19 265);
-  --color-phase-short-break: oklch(0.62 0.15 160);
-  --color-phase-long-break: oklch(0.65 0.15 220);
+  --color-bg: oklch(0.12 0.006 280);
+  --color-surface: oklch(0.17 0.008 280);
+  --color-surface-hover: oklch(0.21 0.01 280);
+  --color-border: oklch(0.26 0.012 280);
+  --color-ink: oklch(0.94 0.008 280);
+  --color-ink-muted: oklch(0.62 0.018 280);
+  --color-accent: oklch(0.65 0.17 260);
+  --color-accent-hover: oklch(0.58 0.20 260);
+  --color-accent-subtle: oklch(0.22 0.055 260);
+  --color-success: oklch(0.64 0.14 155);
+  --color-danger: oklch(0.60 0.17 22);
+  --color-phase-focus: oklch(0.65 0.17 260);
+  --color-phase-short-break: oklch(0.64 0.14 155);
+  --color-phase-long-break: oklch(0.62 0.13 215);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro", "Inter", sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif;
   --font-display: var(--font-sans);
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 
@@ -30,74 +30,164 @@
 
 /* ─── Light mode overrides ─── */
 .light {
-  --color-bg: oklch(0.97 0.002 285);
-  --color-surface: oklch(0.94 0.004 285);
-  --color-surface-hover: oklch(0.90 0.006 285);
-  --color-border: oklch(0.86 0.008 285);
-  --color-ink: oklch(0.15 0.01 285);
-  --color-ink-muted: oklch(0.45 0.02 285);
-  --color-accent: oklch(0.50 0.22 265);
-  --color-accent-hover: oklch(0.42 0.25 265);
-  --color-accent-subtle: oklch(0.88 0.04 265);
-  --color-success: oklch(0.50 0.15 160);
-  --color-danger: oklch(0.55 0.20 25);
-  --color-phase-focus: oklch(0.50 0.22 265);
-  --color-phase-short-break: oklch(0.50 0.15 160);
-  --color-phase-long-break: oklch(0.55 0.15 220);
+  --color-bg: oklch(0.97 0.003 280);
+  --color-surface: oklch(0.935 0.004 280);
+  --color-surface-hover: oklch(0.89 0.006 280);
+  --color-border: oklch(0.85 0.008 280);
+  --color-ink: oklch(0.14 0.01 280);
+  --color-ink-muted: oklch(0.44 0.02 280);
+  --color-accent: oklch(0.48 0.20 260);
+  --color-accent-hover: oklch(0.40 0.23 260);
+  --color-accent-subtle: oklch(0.88 0.035 260);
+  --color-success: oklch(0.48 0.14 155);
+  --color-danger: oklch(0.52 0.18 22);
+  --color-phase-focus: oklch(0.48 0.20 260);
+  --color-phase-short-break: oklch(0.48 0.14 155);
+  --color-phase-long-break: oklch(0.48 0.12 215);
 }
 
-/* ─── Editorial — warm ivory, oxblood, serif ─── */
+/* ─── Editorial — warm cream, deep burgundy, serif elegance ─── */
 [data-visual-theme="editorial"] {
-  --color-bg: oklch(0.965 0.008 80);
-  --color-surface: oklch(0.935 0.01 80);
-  --color-surface-hover: oklch(0.905 0.012 80);
-  --color-border: oklch(0.865 0.014 80);
-  --color-ink: oklch(0.25 0.01 80);
-  --color-ink-muted: oklch(0.45 0.015 80);
-  --color-accent: oklch(0.35 0.12 20);
-  --color-accent-hover: oklch(0.30 0.14 20);
-  --color-accent-subtle: oklch(0.86 0.03 20);
-  --color-phase-focus: oklch(0.35 0.12 20);
-  --color-phase-short-break: oklch(0.55 0.12 140);
-  --color-phase-long-break: oklch(0.55 0.10 200);
+  --color-bg: oklch(0.96 0.01 75);
+  --color-surface: oklch(0.925 0.012 75);
+  --color-surface-hover: oklch(0.89 0.014 75);
+  --color-border: oklch(0.85 0.016 75);
+  --color-ink: oklch(0.18 0.012 75);
+  --color-ink-muted: oklch(0.44 0.018 75);
+  --color-accent: oklch(0.32 0.13 18);
+  --color-accent-hover: oklch(0.27 0.15 18);
+  --color-accent-subtle: oklch(0.85 0.028 18);
+  --color-phase-focus: oklch(0.32 0.13 18);
+  --color-phase-short-break: oklch(0.45 0.10 148);
+  --color-phase-long-break: oklch(0.48 0.09 205);
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: "EB Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
 }
 
-/* ─── Frost — white, charcoal, ice blue, segmented ─── */
+[data-visual-theme="editorial"].light {
+  --color-bg: oklch(0.96 0.01 75);
+  --color-surface: oklch(0.925 0.012 75);
+  --color-surface-hover: oklch(0.89 0.014 75);
+  --color-border: oklch(0.85 0.016 75);
+  --color-ink: oklch(0.18 0.012 75);
+  --color-ink-muted: oklch(0.44 0.018 75);
+  --color-accent: oklch(0.32 0.13 18);
+  --color-accent-hover: oklch(0.27 0.15 18);
+  --color-accent-subtle: oklch(0.85 0.028 18);
+  --color-phase-focus: oklch(0.32 0.13 18);
+  --color-phase-short-break: oklch(0.45 0.10 148);
+  --color-phase-long-break: oklch(0.48 0.09 205);
+}
+
+[data-visual-theme="editorial"]:not(.light) {
+  --color-bg: oklch(0.13 0.012 75);
+  --color-surface: oklch(0.18 0.014 75);
+  --color-surface-hover: oklch(0.22 0.016 75);
+  --color-border: oklch(0.28 0.018 75);
+  --color-ink: oklch(0.92 0.012 75);
+  --color-ink-muted: oklch(0.60 0.02 75);
+  --color-accent: oklch(0.55 0.16 18);
+  --color-accent-hover: oklch(0.48 0.18 18);
+  --color-accent-subtle: oklch(0.24 0.06 18);
+  --color-phase-focus: oklch(0.55 0.16 18);
+  --color-phase-short-break: oklch(0.58 0.12 148);
+  --color-phase-long-break: oklch(0.56 0.10 205);
+}
+
+/* ─── Frost — cool slate, steel blue, Inter Tight ─── */
 [data-visual-theme="frost"] {
-  --color-bg: oklch(0.99 0.002 80);
-  --color-surface: oklch(0.955 0.005 80);
-  --color-surface-hover: oklch(0.915 0.006 80);
-  --color-border: oklch(0.88 0.008 80);
-  --color-ink: oklch(0.30 0.01 260);
-  --color-ink-muted: oklch(0.55 0.015 260);
-  --color-accent: oklch(0.30 0.01 260);
-  --color-accent-hover: oklch(0.25 0.01 260);
-  --color-accent-subtle: oklch(0.93 0.008 260);
-  --color-phase-focus: oklch(0.30 0.01 260);
-  --color-phase-short-break: oklch(0.55 0.10 160);
-  --color-phase-long-break: oklch(0.55 0.10 220);
+  --color-bg: oklch(0.985 0.004 230);
+  --color-surface: oklch(0.95 0.006 230);
+  --color-surface-hover: oklch(0.91 0.008 230);
+  --color-border: oklch(0.87 0.01 230);
+  --color-ink: oklch(0.22 0.012 240);
+  --color-ink-muted: oklch(0.50 0.018 240);
+  --color-accent: oklch(0.38 0.08 250);
+  --color-accent-hover: oklch(0.32 0.10 250);
+  --color-accent-subtle: oklch(0.90 0.02 250);
+  --color-phase-focus: oklch(0.38 0.08 250);
+  --color-phase-short-break: oklch(0.50 0.10 160);
+  --color-phase-long-break: oklch(0.50 0.09 220);
   --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: "Inter Tight", sans-serif;
 }
 
-/* ─── Forge — black, deep blue, clean, architectural ─── */
+[data-visual-theme="frost"].light {
+  --color-bg: oklch(0.985 0.004 230);
+  --color-surface: oklch(0.95 0.006 230);
+  --color-surface-hover: oklch(0.91 0.008 230);
+  --color-border: oklch(0.87 0.01 230);
+  --color-ink: oklch(0.22 0.012 240);
+  --color-ink-muted: oklch(0.50 0.018 240);
+  --color-accent: oklch(0.38 0.08 250);
+  --color-accent-hover: oklch(0.32 0.10 250);
+  --color-accent-subtle: oklch(0.90 0.02 250);
+  --color-phase-focus: oklch(0.38 0.08 250);
+  --color-phase-short-break: oklch(0.50 0.10 160);
+  --color-phase-long-break: oklch(0.50 0.09 220);
+}
+
+[data-visual-theme="frost"]:not(.light) {
+  --color-bg: oklch(0.11 0.01 240);
+  --color-surface: oklch(0.16 0.012 240);
+  --color-surface-hover: oklch(0.20 0.014 240);
+  --color-border: oklch(0.26 0.016 240);
+  --color-ink: oklch(0.92 0.01 240);
+  --color-ink-muted: oklch(0.58 0.02 240);
+  --color-accent: oklch(0.62 0.10 250);
+  --color-accent-hover: oklch(0.55 0.12 250);
+  --color-accent-subtle: oklch(0.20 0.04 250);
+  --color-phase-focus: oklch(0.62 0.10 250);
+  --color-phase-short-break: oklch(0.58 0.12 160);
+  --color-phase-long-break: oklch(0.56 0.10 220);
+}
+
+/* ─── Forge — deep black, electric blue, warm cream text ─── */
 [data-visual-theme="forge"] {
-  --color-bg: oklch(0.10 0.003 80);
-  --color-surface: oklch(0.16 0.005 80);
-  --color-surface-hover: oklch(0.20 0.008 80);
-  --color-border: oklch(0.25 0.01 80);
-  --color-ink: oklch(0.92 0.01 80);
-  --color-ink-muted: oklch(0.60 0.015 80);
-  --color-accent: oklch(0.58 0.14 255);
-  --color-accent-hover: oklch(0.52 0.16 255);
-  --color-accent-subtle: oklch(0.20 0.05 255);
-  --color-phase-focus: oklch(0.58 0.14 255);
-  --color-phase-short-break: oklch(0.55 0.12 140);
-  --color-phase-long-break: oklch(0.55 0.10 220);
-  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-bg: oklch(0.095 0.004 260);
+  --color-surface: oklch(0.15 0.006 260);
+  --color-surface-hover: oklch(0.19 0.008 260);
+  --color-border: oklch(0.24 0.01 260);
+  --color-ink: oklch(0.93 0.006 80);
+  --color-ink-muted: oklch(0.58 0.015 260);
+  --color-accent: oklch(0.62 0.16 250);
+  --color-accent-hover: oklch(0.55 0.18 250);
+  --color-accent-subtle: oklch(0.18 0.05 250);
+  --color-phase-focus: oklch(0.62 0.16 250);
+  --color-phase-short-break: oklch(0.56 0.12 148);
+  --color-phase-long-break: oklch(0.54 0.10 215);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
+}
+
+[data-visual-theme="forge"].light {
+  --color-bg: oklch(0.095 0.004 260);
+  --color-surface: oklch(0.15 0.006 260);
+  --color-surface-hover: oklch(0.19 0.008 260);
+  --color-border: oklch(0.24 0.01 260);
+  --color-ink: oklch(0.93 0.006 80);
+  --color-ink-muted: oklch(0.58 0.015 260);
+  --color-accent: oklch(0.62 0.16 250);
+  --color-accent-hover: oklch(0.55 0.18 250);
+  --color-accent-subtle: oklch(0.18 0.05 250);
+  --color-phase-focus: oklch(0.62 0.16 250);
+  --color-phase-short-break: oklch(0.56 0.12 148);
+  --color-phase-long-break: oklch(0.54 0.10 215);
+}
+
+[data-visual-theme="forge"]:not(.light) {
+  --color-bg: oklch(0.095 0.004 260);
+  --color-surface: oklch(0.15 0.006 260);
+  --color-surface-hover: oklch(0.19 0.008 260);
+  --color-border: oklch(0.24 0.01 260);
+  --color-ink: oklch(0.93 0.006 80);
+  --color-ink-muted: oklch(0.58 0.015 260);
+  --color-accent: oklch(0.62 0.16 250);
+  --color-accent-hover: oklch(0.55 0.18 250);
+  --color-accent-subtle: oklch(0.18 0.05 250);
+  --color-phase-focus: oklch(0.62 0.16 250);
+  --color-phase-short-break: oklch(0.56 0.12 148);
+  --color-phase-long-break: oklch(0.54 0.10 215);
 }
 
 /* ─── Global base styles ─── */
@@ -106,6 +196,8 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent rubber-banding behind the status bar on iOS PWA */
+    overscroll-behavior: none;
   }
 
   body {
@@ -124,7 +216,7 @@
     flex-direction: column;
   }
 
-  /* Safe area for PWA bottom nav */
+  /* Safe area padding for bottom nav on iOS PWA */
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
@@ -143,7 +235,7 @@
 
   /* Scrollbar for dark mode */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;

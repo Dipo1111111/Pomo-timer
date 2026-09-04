@@ -6,9 +6,9 @@ const CIRC = 2 * Math.PI * 80
 
 const s: Record<string, React.CSSProperties> = {
   page: {
-    fontFamily: "'Inter Tight', sans-serif",
-    background: '#0D0D0D',
-    color: '#EDE8DC',
+    fontFamily: "'Inter', sans-serif",
+    background: '#0F0F12',
+    color: '#F0E8D0',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -26,7 +26,7 @@ const s: Record<string, React.CSSProperties> = {
   logo: {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: 11, fontWeight: 700,
-    color: '#4A82C4', letterSpacing: 4,
+    color: '#4A90D9', letterSpacing: 4,
     textTransform: 'uppercase', opacity: 0.3,
   } as React.CSSProperties,
 
@@ -45,14 +45,14 @@ const s: Record<string, React.CSSProperties> = {
   },
   time: {
     fontFamily: "'Space Grotesk', sans-serif",
-    fontSize: 48, fontWeight: 700, color: '#EDE8DC',
+    fontSize: 48, fontWeight: 700, color: '#F0E8D0',
     letterSpacing: '0.02em', lineHeight: 1,
   },
   colon: { opacity: 0.1, fontWeight: 400, margin: '0 2px' },
   phase: {
-    fontFamily: "'Inter Tight', sans-serif",
+    fontFamily: "'Inter', sans-serif",
     fontSize: 9, fontWeight: 500, letterSpacing: 5,
-    textTransform: 'uppercase', color: '#4A82C4', opacity: 0.5,
+    textTransform: 'uppercase', color: '#4A90D9', opacity: 0.5,
     marginTop: 10,
   } as React.CSSProperties,
 
@@ -64,35 +64,35 @@ const s: Record<string, React.CSSProperties> = {
   statItem: { textAlign: 'center' } as React.CSSProperties,
   statValue: {
     fontFamily: "'Space Grotesk', sans-serif",
-    fontSize: 11, fontWeight: 600, color: '#EDE8DC',
+    fontSize: 11, fontWeight: 600, color: '#F0E8D0',
   } as React.CSSProperties,
   statLabel: {
     fontSize: 7, fontWeight: 500, letterSpacing: 2,
-    textTransform: 'uppercase', color: '#EDE8DC', opacity: 0.1,
+    textTransform: 'uppercase', color: '#F0E8D0', opacity: 0.1,
     marginTop: 4,
   } as React.CSSProperties,
 
   /* ─── Divider ─── */
   divider: {
-    width: '100%', height: 1, background: '#EDE8DC',
+    width: '100%', height: 1, background: '#F0E8D0',
     opacity: 0.03, marginBottom: 24,
   } as React.CSSProperties,
 
   /* ─── Controls ─── */
   controls: { display: 'flex', justifyContent: 'center', gap: 10 },
   btn: {
-    fontFamily: "'Inter Tight', sans-serif",
+    fontFamily: "'Inter', sans-serif",
     fontSize: 10, fontWeight: 600, letterSpacing: 3,
     textTransform: 'uppercase', cursor: 'pointer',
     padding: '12px 28px', background: 'transparent',
     transition: 'all 0.15s ease',
   } as React.CSSProperties,
   btnPrimary: {
-    border: '1.5px solid #4A82C4', color: '#4A82C4',
+    border: '1.5px solid #4A90D9', color: '#4A90D9',
   },
   btnGhost: {
-    border: '1.5px solid rgba(237,232,220,0.04)',
-    color: '#EDE8DC', opacity: 0.15,
+    border: '1.5px solid rgba(240,232,208,0.04)',
+    color: '#F0E8D0', opacity: 0.15,
   } as React.CSSProperties,
 
   /* ─── Footer ─── */
@@ -101,7 +101,7 @@ const s: Record<string, React.CSSProperties> = {
   } as React.CSSProperties,
   footerText: {
     fontSize: 7, fontWeight: 400, letterSpacing: 4,
-    textTransform: 'uppercase', color: '#EDE8DC', opacity: 0.04,
+    textTransform: 'uppercase', color: '#F0E8D0', opacity: 0.04,
   } as React.CSSProperties,
 }
 
@@ -120,13 +120,13 @@ export default function ForgeDesign() {
             <svg width="100%" height="100%" viewBox="0 0 220 220" style={s.ringSvg}>
               {/* Track — faint structural ring */}
               <circle cx="110" cy="110" r="80" fill="none"
-                stroke="#EDE8DC" strokeWidth="1" opacity="0.03" />
+                stroke="#F0E8D0" strokeWidth="1" opacity="0.03" />
               {/* Outer reference ring */}
               <circle cx="110" cy="110" r="93" fill="none"
-                stroke="#EDE8DC" strokeWidth="0.3" opacity="0.02" />
-              {/* Progress — deep blue */}
+                stroke="#F0E8D0" strokeWidth="0.3" opacity="0.02" />
+              {/* Progress — electric blue */}
               <circle cx="110" cy="110" r="80" fill="none"
-                stroke="#4A82C4" strokeWidth="4"
+                stroke="#4A90D9" strokeWidth="4"
                 strokeDasharray={CIRC} strokeDashoffset={CIRC * 0.35}
                 strokeLinecap="round" />
             </svg>

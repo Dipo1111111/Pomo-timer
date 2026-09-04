@@ -21,8 +21,8 @@ export function AppShell() {
       {/* Sidebar + bottom nav */}
       <NavBar />
 
-      {/* Main content area */}
-      <main className="flex-1 flex flex-col pb-20 md:pb-0 overflow-y-auto min-h-dvh">
+      {/* Main content area — pb accounts for mobile tab bar (56px) + safe area */}
+      <main className="flex-1 flex flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0 overflow-y-auto min-h-dvh">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

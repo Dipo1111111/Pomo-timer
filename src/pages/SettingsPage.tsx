@@ -104,24 +104,24 @@ export default function SettingsPage() {
             <ThemeOption
               id="editorial"
               label="Editorial"
-              description="Warm ivory, oxblood, EB Garamond serif"
-              colors={['#F5F0EB', '#6B1A2A', '#2C2C2C']}
+              description="Cream, deep burgundy, Cormorant Garamond serif"
+              colors={['#F5F0E8', '#8B1A2A', '#2C2520']}
               selected={settings.visualTheme === 'editorial'}
               onSelect={() => updateSettings({ visualTheme: 'editorial' })}
             />
             <ThemeOption
               id="frost"
               label="Frost"
-              description="White, charcoal, Inter Tight, segmented ring"
-              colors={['#FAFAF8', '#2D3436', '#B8C5D6']}
+              description="Cool slate, steel blue, Inter Tight"
+              colors={['#F8F9FB', '#4A6A8A', '#1E2228']}
               selected={settings.visualTheme === 'frost'}
               onSelect={() => updateSettings({ visualTheme: 'frost' })}
             />
             <ThemeOption
               id="forge"
               label="Forge"
-              description="Black, deep blue, Space Grotesk, bold blue accent"
-              colors={['#0D0D0D', '#4A82C4', '#EDE8DC']}
+              description="Deep black, electric blue, Space Grotesk"
+              colors={['#0F0F12', '#4A90D9', '#F0E8D0']}
               selected={settings.visualTheme === 'forge'}
               onSelect={() => updateSettings({ visualTheme: 'forge' })}
             />

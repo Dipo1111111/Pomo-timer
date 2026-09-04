@@ -8,36 +8,36 @@ import { useNavigate } from 'react-router-dom'
 /* ── Editorial ── */
 function EditorialPreview() {
   return (
-    <div style={{ background: '#F5F0EB', minHeight: '100vh', padding: '40px 24px', position: 'relative', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ background: '#F5F0E8', minHeight: '100vh', padding: '40px 24px', position: 'relative', fontFamily: "'Inter', sans-serif" }}>
       <div style={{ textAlign: 'center', marginBottom: 4 }}>
-        <div style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 10, fontStyle: 'italic', color: '#6B1A2A', fontWeight: 500 }}>pomodoro</div>
-        <div style={{ width: 24, height: 1.5, background: '#6B1A2A', margin: '10px auto', opacity: 0.3 }} />
+        <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 10, fontStyle: 'italic', color: '#8B1A2A', fontWeight: 500 }}>pomodoro</div>
+        <div style={{ width: 24, height: 1.5, background: '#8B1A2A', margin: '10px auto', opacity: 0.3 }} />
         <div style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.35 }}>Session II of IV</div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
         <div style={{ position: 'relative', width: 125, height: 125 }}>
           <svg width="125" height="125" viewBox="0 0 125 125" style={{ transform: 'rotate(-90deg)' }}>
-            <circle cx="62.5" cy="62.5" r="48" fill="none" stroke="#2C2C2C" strokeWidth="1" opacity="0.08" />
-            <circle cx="62.5" cy="62.5" r="48" fill="none" stroke="#6B1A2A" strokeWidth="2.2" strokeDasharray="301.6" strokeDashoffset="105.6" strokeLinecap="round" />
+            <circle cx="62.5" cy="62.5" r="48" fill="none" stroke="#2C2520" strokeWidth="1" opacity="0.08" />
+            <circle cx="62.5" cy="62.5" r="48" fill="none" stroke="#8B1A2A" strokeWidth="2.2" strokeDasharray="301.6" strokeDashoffset="105.6" strokeLinecap="round" />
             {[0, 90, 180, 270].map((a) => {
               const r = (a - 90) * Math.PI / 180
-              return <line key={a} x1={62.5+48*Math.cos(r)} y1={62.5+48*Math.sin(r)} x2={62.5+44*Math.cos(r)} y2={62.5+44*Math.sin(r)} stroke="#6B1A2A" strokeWidth="0.6" opacity="0.12" />
+              return <line key={a} x1={62.5+48*Math.cos(r)} y1={62.5+48*Math.sin(r)} x2={62.5+44*Math.cos(r)} y2={62.5+44*Math.sin(r)} stroke="#8B1A2A" strokeWidth="0.6" opacity="0.12" />
             })}
           </svg>
           <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 24, fontWeight: 500, color: '#2C2C2C' }}>15:23</span>
-            <span style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 11, fontStyle: 'italic', color: '#6B1A2A', marginTop: 2 }}>focus</span>
+            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 24, fontWeight: 500, color: '#2C2520' }}>15:23</span>
+            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 11, fontStyle: 'italic', color: '#8B1A2A', marginTop: 2 }}>focus</span>
           </div>
         </div>
       </div>
-      <div style={{ width: '100%', height: 1, background: '#2C2C2C', opacity: 0.08, marginBottom: 16 }} />
+      <div style={{ width: '100%', height: 1, background: '#2C2520', opacity: 0.08, marginBottom: 16 }} />
       <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 16, fontSize: 7, fontWeight: 400, letterSpacing: 2, textTransform: 'uppercase' }}>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 13, fontWeight: 500, color: '#2C2C2C' }}>II</div><span style={{ opacity: 0.25 }}>Session</span></div>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 13, fontWeight: 500, color: '#2C2C2C' }}>25:00</div><span style={{ opacity: 0.25 }}>Target</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 13, fontWeight: 500, color: '#2C2520' }}>II</div><span style={{ opacity: 0.25 }}>Session</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 13, fontWeight: 500, color: '#2C2520' }}>25:00</div><span style={{ opacity: 0.25 }}>Target</span></div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
         <div style={{ padding: '6px 18px', border: '1.5px solid transparent', fontSize: 8, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.3 }}>Skip</div>
-        <div style={{ padding: '6px 22px', border: '1.5px solid #6B1A2A', fontSize: 8, letterSpacing: 2, textTransform: 'uppercase', color: '#6B1A2A' }}>Begin</div>
+        <div style={{ padding: '6px 22px', border: '1.5px solid #8B1A2A', fontSize: 8, letterSpacing: 2, textTransform: 'uppercase', color: '#8B1A2A' }}>Begin</div>
         <div style={{ padding: '6px 18px', border: '1.5px solid transparent', fontSize: 8, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.3 }}>Reset</div>
       </div>
       <div style={{ position: 'absolute', bottom: 24, left: 0, right: 0, textAlign: 'center' }}>
@@ -53,15 +53,15 @@ function FrostPreview() {
   const segLen = (2 * Math.PI * 42) / segs
   const filled = Math.round(segs * 0.65)
   return (
-    <div style={{ background: '#FAFAF8', minHeight: '100vh', padding: '40px 20px', fontFamily: "'Inter Tight', sans-serif", color: '#2D3436' }}>
-      <div style={{ textAlign: 'center', fontSize: 7, fontWeight: 500, letterSpacing: 6, textTransform: 'uppercase', color: '#B8C5D6', marginBottom: 28 }}>Pomodoro</div>
+    <div style={{ background: '#F8F9FB', minHeight: '100vh', padding: '40px 20px', fontFamily: "'Inter Tight', sans-serif", color: '#1E2228' }}>
+      <div style={{ textAlign: 'center', fontSize: 7, fontWeight: 500, letterSpacing: 6, textTransform: 'uppercase', color: '#4A6A8A', marginBottom: 28 }}>Pomodoro</div>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
         <div style={{ position: 'relative', width: 110, height: 110 }}>
           <svg width="110" height="110" viewBox="0 0 110 110" style={{ transform: 'rotate(-90deg)' }}>
-            <circle cx="55" cy="55" r="50" fill="none" stroke="#B8C5D6" strokeWidth="0.3" opacity="0.15" />
+            <circle cx="55" cy="55" r="50" fill="none" stroke="#4A6A8A" strokeWidth="0.3" opacity="0.15" />
             {Array.from({ length: segs }).map((_, i) => (
               <circle key={i} cx="55" cy="55" r="42" fill="none"
-                stroke={i < filled ? '#2D3436' : '#B8C5D6'}
+                stroke={i < filled ? '#1E2228' : '#4A6A8A'}
                 strokeWidth={i < filled ? 1.2 : 0.6}
                 strokeDasharray={`${segLen - 2} ${2 * Math.PI * 42}`}
                 strokeDashoffset={i * segLen}
@@ -69,20 +69,20 @@ function FrostPreview() {
             ))}
           </svg>
           <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 20, fontWeight: 600, letterSpacing: 1, color: '#2D3436' }}>15:23</span>
-            <span style={{ fontSize: 6, fontWeight: 400, letterSpacing: 4, textTransform: 'uppercase', color: '#B8C5D6', marginTop: 4 }}>Focus</span>
+            <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 20, fontWeight: 600, letterSpacing: 1, color: '#1E2228' }}>15:23</span>
+            <span style={{ fontSize: 6, fontWeight: 400, letterSpacing: 4, textTransform: 'uppercase', color: '#4A6A8A', marginTop: 4 }}>Focus</span>
           </div>
         </div>
       </div>
-      <div style={{ height: 1, background: '#B8C5D6', opacity: 0.1, marginBottom: 16 }} />
+      <div style={{ height: 1, background: '#4A6A8A', opacity: 0.1, marginBottom: 16 }} />
       <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 16, fontSize: 6, fontWeight: 400, letterSpacing: 3, textTransform: 'uppercase' }}>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, fontWeight: 500, color: '#2D3436' }}>02/04</div><span style={{ color: '#B8C5D6' }}>Session</span></div>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, fontWeight: 500, color: '#2D3436' }}>25:00</div><span style={{ color: '#B8C5D6' }}>Target</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, fontWeight: 500, color: '#1E2228' }}>02/04</div><span style={{ color: '#4A6A8A' }}>Session</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, fontWeight: 500, color: '#1E2228' }}>25:00</div><span style={{ color: '#4A6A8A' }}>Target</span></div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 8 }}>
-        <div style={{ padding: '6px 14px', border: '1.5px solid transparent', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#B8C5D6' }}>Skip</div>
-        <div style={{ padding: '6px 18px', border: '1.5px solid #2D3436', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#2D3436' }}>Start</div>
-        <div style={{ padding: '6px 14px', border: '1.5px solid transparent', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#B8C5D6' }}>Reset</div>
+        <div style={{ padding: '6px 14px', border: '1.5px solid transparent', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#4A6A8A' }}>Skip</div>
+        <div style={{ padding: '6px 18px', border: '1.5px solid #1E2228', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#1E2228' }}>Start</div>
+        <div style={{ padding: '6px 14px', border: '1.5px solid transparent', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#4A6A8A' }}>Reset</div>
       </div>
     </div>
   )
@@ -91,33 +91,33 @@ function FrostPreview() {
 /* ── Forge — deep crimson, architectural ── */
 function ForgePreview() {
   return (
-    <div style={{ background: '#0D0D0D', minHeight: '100vh', padding: '36px 20px', fontFamily: "'Inter Tight', sans-serif", color: '#EDE8DC' }}>
+    <div style={{ background: '#0F0F12', minHeight: '100vh', padding: '36px 20px', fontFamily: "'Inter', sans-serif", color: '#F0E8D0' }}>
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 700, color: '#4A82C4', letterSpacing: 4, textTransform: 'uppercase', opacity: 0.3 }}>Pomodoro</div>
+        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 700, color: '#4A90D9', letterSpacing: 4, textTransform: 'uppercase', opacity: 0.3 }}>Pomodoro</div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
         <div style={{ position: 'relative', width: 115, height: 115 }}>
           <svg width="115" height="115" viewBox="0 0 115 115" style={{ transform: 'rotate(-90deg)' }}>
-            <circle cx="57.5" cy="57.5" r="42" fill="none" stroke="#EDE8DC" strokeWidth="1" opacity="0.03" />
-            <circle cx="57.5" cy="57.5" r="42" fill="none" stroke="#4A82C4" strokeWidth="3" strokeDasharray="263.9" strokeDashoffset="92.4" strokeLinecap="round" />
-            <circle cx="57.5" cy="57.5" r="48" fill="none" stroke="#EDE8DC" strokeWidth="0.3" opacity="0.02" />
+            <circle cx="57.5" cy="57.5" r="42" fill="none" stroke="#F0E8D0" strokeWidth="1" opacity="0.03" />
+            <circle cx="57.5" cy="57.5" r="42" fill="none" stroke="#4A90D9" strokeWidth="3" strokeDasharray="263.9" strokeDashoffset="92.4" strokeLinecap="round" />
+            <circle cx="57.5" cy="57.5" r="48" fill="none" stroke="#F0E8D0" strokeWidth="0.3" opacity="0.02" />
           </svg>
           <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 22, fontWeight: 700, color: '#EDE8DC', letterSpacing: '0.02em' }}>15:23</span>
-            <span style={{ fontSize: 7, fontWeight: 500, letterSpacing: 5, textTransform: 'uppercase', color: '#4A82C4', opacity: 0.5, marginTop: 4 }}>Focus</span>
+            <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 22, fontWeight: 700, color: '#F0E8D0', letterSpacing: '0.02em' }}>15:23</span>
+            <span style={{ fontSize: 7, fontWeight: 500, letterSpacing: 5, textTransform: 'uppercase', color: '#4A90D9', opacity: 0.5, marginTop: 4 }}>Focus</span>
           </div>
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 28, marginBottom: 16, fontSize: 6, fontWeight: 500, letterSpacing: 2, textTransform: 'uppercase' }}>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#EDE8DC' }}>02</div><span style={{ opacity: 0.1 }}>Session</span></div>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#EDE8DC' }}>25:00</div><span style={{ opacity: 0.1 }}>Target</span></div>
-        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#EDE8DC' }}>09:37</div><span style={{ opacity: 0.1 }}>Elapsed</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#F0E8D0' }}>02</div><span style={{ opacity: 0.1 }}>Session</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#F0E8D0' }}>25:00</div><span style={{ opacity: 0.1 }}>Target</span></div>
+        <div style={{ textAlign: 'center' }}><div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 11, fontWeight: 600, color: '#F0E8D0' }}>09:37</div><span style={{ opacity: 0.1 }}>Elapsed</span></div>
       </div>
-      <div style={{ width: '100%', height: 1, background: '#EDE8DC', opacity: 0.03, marginBottom: 14 }} />
+      <div style={{ width: '100%', height: 1, background: '#F0E8D0', opacity: 0.03, marginBottom: 14 }} />
       <div style={{ display: 'flex', justifyContent: 'center', gap: 8 }}>
-        <div style={{ padding: '6px 14px', border: '1.5px solid rgba(237,232,220,0.04)', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.15 }}>Skip</div>
-        <div style={{ padding: '6px 18px', border: '1.5px solid #4A82C4', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#4A82C4' }}>Begin</div>
-        <div style={{ padding: '6px 14px', border: '1.5px solid rgba(237,232,220,0.04)', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.15 }}>Reset</div>
+        <div style={{ padding: '6px 14px', border: '1.5px solid rgba(240,232,208,0.04)', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.15 }}>Skip</div>
+        <div style={{ padding: '6px 18px', border: '1.5px solid #4A90D9', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', color: '#4A90D9' }}>Begin</div>
+        <div style={{ padding: '6px 14px', border: '1.5px solid rgba(240,232,208,0.04)', fontSize: 7, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.15 }}>Reset</div>
       </div>
     </div>
   )
@@ -131,28 +131,28 @@ const DESIGNS = [
   {
     id: 'editorial',
     name: 'Editorial',
-    tagline: 'Serif · Oxblood · Classic',
-    description: 'Warm ivory and oxblood. EB Garamond for the display, Inter for body. Tick marks at cardinal points. Refined like a printed page.',
-    palette: ['#F5F0EB', '#6B1A2A', '#2C2C2C', '#FFFFFF'],
-    font: 'EB Garamond + Inter',
+    tagline: 'Serif · Burgundy · Classic',
+    description: 'Cream and deep burgundy. Cormorant Garamond for the display, Inter for body. Tick marks at cardinal points. Refined like a printed page.',
+    palette: ['#F5F0E8', '#8B1A2A', '#2C2520', '#FFFFFF'],
+    font: 'Cormorant Garamond + Inter',
     preview: EditorialPreview,
   },
   {
     id: 'frost',
     name: 'Frost',
-    tagline: 'Scandinavian · Segmented · Airy',
-    description: 'White, charcoal, and ice blue. 12-segment ring, Inter Tight throughout. Lightweight and precise — like Nordic design.',
-    palette: ['#FAFAF8', '#B8C5D6', '#2D3436', '#E8F0F4'],
+    tagline: 'Scandinavian · Segmented · Cool',
+    description: 'Cool slate, steel blue, and charcoal. 12-segment ring, Inter Tight throughout. Lightweight and precise — like Nordic design.',
+    palette: ['#F8F9FB', '#4A6A8A', '#1E2228', '#E8F0F4'],
     font: 'Inter Tight',
     preview: FrostPreview,
   },
   {
     id: 'forge',
     name: 'Forge',
-    tagline: 'Blue · Dark · Bold',
-    description: 'Black and deep blue. Space Grotesk display, Inter Tight body. Clean, dark, architectural — bold blue accent.',
-    palette: ['#0D0D0D', '#4A82C4', '#EDE8DC', '#1A1A1A'],
-    font: 'Space Grotesk + Inter Tight',
+    tagline: 'Blue · Dark · Architectural',
+    description: 'Deep black and electric blue. Space Grotesk display, warm cream body text. Clean, dark, architectural — bold blue accent.',
+    palette: ['#0F0F12', '#4A90D9', '#F0E8D0', '#1A1A20'],
+    font: 'Space Grotesk + Inter',
     preview: ForgePreview,
   },
 ]

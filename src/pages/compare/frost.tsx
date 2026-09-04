@@ -9,8 +9,8 @@ const SEGMENT_LENGTH = CIRC / SEGMENTS
 const s: Record<string, React.CSSProperties> = {
   page: {
     fontFamily: "'Inter Tight', -apple-system, sans-serif",
-    background: '#FAFAF8',
-    color: '#2D3436',
+    background: '#F8F9FB',
+    color: '#1E2228',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
@@ -23,7 +23,7 @@ const s: Record<string, React.CSSProperties> = {
   header: { textAlign: 'center', marginBottom: 48 },
   logo: {
     fontSize: 8, fontWeight: 500, letterSpacing: 7,
-    textTransform: 'uppercase', color: '#B8C5D6',
+    textTransform: 'uppercase', color: '#4A6A8A',
     marginBottom: 12,
   } as React.CSSProperties,
 
@@ -44,18 +44,18 @@ const s: Record<string, React.CSSProperties> = {
   },
   time: {
     fontFamily: "'Inter Tight', -apple-system, sans-serif",
-    fontSize: 44, fontWeight: 600, color: '#2D3436',
+    fontSize: 44, fontWeight: 600, color: '#1E2228',
     letterSpacing: 1, lineHeight: 1,
   },
   colon: { opacity: 0.15, margin: '0 1px', fontWeight: 400 },
   phase: {
     fontSize: 9, fontWeight: 400, letterSpacing: 5,
-    textTransform: 'uppercase', color: '#B8C5D6',
+    textTransform: 'uppercase', color: '#4A6A8A',
     marginTop: 10,
   },
 
   /* Spacer — negative space as design */
-  spacer: { height: 1, background: '#B8C5D6', opacity: 0.1, marginBottom: 28 },
+  spacer: { height: 1, background: '#4A6A8A', opacity: 0.1, marginBottom: 28 },
 
   /* Session info — minimal label pair */
   infoRow: {
@@ -65,12 +65,12 @@ const s: Record<string, React.CSSProperties> = {
   infoItem: { textAlign: 'center' },
   infoValue: {
     fontFamily: "'Inter Tight', -apple-system, sans-serif",
-    fontSize: 13, fontWeight: 500, color: '#2D3436',
+    fontSize: 13, fontWeight: 500, color: '#1E2228',
     letterSpacing: 1,
   } as React.CSSProperties,
   infoLabel: {
     fontSize: 8, fontWeight: 400, letterSpacing: 3,
-    textTransform: 'uppercase', color: '#B8C5D6',
+    textTransform: 'uppercase', color: '#4A6A8A',
     marginTop: 4,
   } as React.CSSProperties,
 
@@ -83,10 +83,10 @@ const s: Record<string, React.CSSProperties> = {
     background: 'transparent',
   } as React.CSSProperties,
   btnPrimary: {
-    border: '1.5px solid #2D3436', color: '#2D3436',
+    border: '1.5px solid #1E2228', color: '#1E2228',
   },
   btnGhost: {
-    border: '1.5px solid transparent', color: '#B8C5D6',
+    border: '1.5px solid transparent', color: '#4A6A8A',
   } as React.CSSProperties,
 
   footer: {
@@ -94,7 +94,7 @@ const s: Record<string, React.CSSProperties> = {
   },
   footerText: {
     fontSize: 8, fontWeight: 400, letterSpacing: 5,
-    textTransform: 'uppercase', color: '#B8C5D6', opacity: 0.3,
+    textTransform: 'uppercase', color: '#4A6A8A', opacity: 0.3,
   } as React.CSSProperties,
 }
 
@@ -121,7 +121,7 @@ export default function FrostDesign() {
               {/* Fine track — discrete segments */}
               {segments.map((seg, i) => (
                 <circle key={i} cx="110" cy="110" r="85" fill="none"
-                  stroke={seg.filled ? '#2D3436' : '#E8F0F4'}
+                  stroke={seg.filled ? '#1E2228' : '#E8F0F4'}
                   strokeWidth={seg.filled ? 1.5 : 0.8}
                   strokeDasharray={`${SEGMENT_LENGTH - 3} ${CIRC}`}
                   strokeDashoffset={seg.offset}
@@ -129,7 +129,7 @@ export default function FrostDesign() {
               ))}
               {/* Outer reference ring — extra fine */}
               <circle cx="110" cy="110" r="95" fill="none"
-                stroke="#B8C5D6" strokeWidth="0.3" opacity="0.15" />
+                stroke="#4A6A8A" strokeWidth="0.3" opacity="0.15" />
             </svg>
             <div style={s.digitsWrap}>
               <div style={s.time}>
