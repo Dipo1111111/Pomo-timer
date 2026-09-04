@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 import { useTimerContext } from '@/lib/timer-context'
 
@@ -6,6 +6,9 @@ import { useTimerContext } from '@/lib/timer-context'
  * Handles PWA service worker updates with timer-aware behavior:
  * - If the timer isn't running, updates automatically and reloads (smooth, seamless)
  * - If the timer IS running, shows a minimal banner so you're not interrupted mid-session
+ *
+ * With registerType: 'autoUpdate' + skipWaiting + clientsClaim,
+ * the new SW activates as soon as it's installed.
  */
 export function PwaUpdateBanner() {
   const { state } = useTimerContext()
@@ -15,12 +18,12 @@ export function PwaUpdateBanner() {
     updateServiceWorker,
   } = useRegisterSW({
     onRegisteredSW(_swUrl, registration) {
-      // Periodically check for SW updates (every 30 minutes)
-      // Important for installed PWAs that may stay open for hours
+      // Check for SW updates every 60 seconds — ensures new deploys are
+      // picked up quickly without hammering the network
       if (registration) {
         setInterval(() => {
           registration.update()
-        }, 30 * 60 * 1000)
+        }, 60 * 1000)
       }
     },
     onRegisterError(error) {
@@ -34,12 +37,18 @@ export function PwaUpdateBanner() {
     if (dismissed) return
     if (state.status === 'running') return
 
+    // Short delay so the page finishes painting before reload
     const timeout = setTimeout(() => {
       updateServiceWorker(true)
-    }, 1500)
+    }, 800)
 
     return () => clearTimeout(timeout)
   }, [needRefresh, state.status, updateServiceWorker, dismissed])
+
+  const handleUpdate = useCallback(() => {
+    setDismissed(true)
+    updateServiceWorker(true)
+  }, [updateServiceWorker])
 
   if (!needRefresh) return null
 
@@ -53,10 +62,7 @@ export function PwaUpdateBanner() {
           Update available
         </p>
         <button
-          onClick={() => {
-            setDismissed(true)
-            updateServiceWorker(true)
-          }}
+          onClick={handleUpdate}
           className="text-xs font-semibold text-accent hover:text-accent-hover transition-colors"
         >
           Refresh
